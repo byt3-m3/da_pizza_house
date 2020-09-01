@@ -78,5 +78,6 @@ class InventoryTestCase(unittest.TestCase):
         self.assertIsInstance(new_inventory_item(item=my_item, quantity=10), InventoryItem)
         self.assertIsInstance(build_inventory_item(name='cheese', price=1.00, quantity=40), InventoryItem)
 
+
 if __name__ == '__main__':
     unittest.main()
