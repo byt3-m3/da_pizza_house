@@ -9,3 +9,9 @@ system that will provide the ability to simulate the basic functions of a pizza 
 - Provide the ability for shops to cross-refrence inventory of other locations for resource managment
 - Provide abilty for customers to take orders to nearest location
 - Provide workstations within the locations to simulated the preperations, cooking and delivery actions
+
+
+## Changelog 
+- Implemented 'inventory' module
+    - added Inventory, InventoryItem, Item classes
+    - Created tests for the inventory module
