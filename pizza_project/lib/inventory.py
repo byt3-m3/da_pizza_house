@@ -103,6 +103,10 @@ class Inventory:
         else:
             return False
 
+    def delete_item(self, item: InventoryItem):
+        # TODO: Implement function to remove item from inventory
+        raise NotImplementedError
+
     def add_items(self, items: list):
         """
         Takes a list of tulples structed as (item, quantity). Will iterate over the list tupples
