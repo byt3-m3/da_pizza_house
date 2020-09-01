@@ -1,7 +1,7 @@
 import unittest
 from copy import deepcopy
 
-from lib import Inventory, Food, Item, InventoryItem
+from pizza_project.lib import Inventory, Food, Item, InventoryItem
 
 
 class InventoryTestCase(unittest.TestCase):
@@ -51,6 +51,11 @@ class InventoryTestCase(unittest.TestCase):
         self.assertEqual(len(my_inventory), 2)
 
     def test_inventory_get_item(self):
+        """
+        Tests the feature of getting items from the inventory.
+
+        :return:
+        """
         my_inventory = deepcopy(self.inventory)
 
         cheese = Food(price=2.15, name="cheese")
