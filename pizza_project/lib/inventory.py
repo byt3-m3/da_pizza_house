@@ -163,3 +163,40 @@ class Inventory:
             raise Exception(f'Insufficient Funds: {self.balance}!')
         self.account = temp
         return True
+
+
+# Helper functions
+
+def new_item(name: str, price: float) -> Item:
+    """
+    Creates a new instance of Item.
+
+    :param name: Name of item
+    :param price: Price of the Item
+    :return:
+    """
+    return Item(name=name, price=price)
+
+
+def new_inventory_item(item: Item, quantity: int) -> InventoryItem:
+    """
+    Creates a new instance of InventoryItem
+
+    :param item: instance of a Item
+    :param quantity: Number of Items
+    :return:
+    """
+    if isinstance(item, Item):
+        return InventoryItem(item=item, quantity=quantity)
+
+
+def build_inventory_item(name: str, price: float, quantity: int) -> InventoryItem:
+    """
+    Builds a new item instance and creates a instance of InventoryItem
+
+    :param name: Name of item
+    :param price: Price of the Item
+    :param quantity: Number of Items
+    :return:
+    """
+    return InventoryItem(item=Item(name=name, price=price), quantity=quantity)

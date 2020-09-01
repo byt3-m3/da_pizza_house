@@ -1,7 +1,7 @@
 import unittest
 from copy import deepcopy
 
-from pizza_project.lib import Inventory, Food, Item, InventoryItem
+from pizza_project.lib import Inventory, Food, Item, InventoryItem, new_item, new_inventory_item, build_inventory_item
 
 
 class InventoryTestCase(unittest.TestCase):
@@ -66,6 +66,17 @@ class InventoryTestCase(unittest.TestCase):
         self.assertIsInstance(i_item, InventoryItem)
         self.assertEqual(my_inventory.stock, 107.5)
 
+    def test_inventory_helpers(self):
+        """
+        Tests the various helper and builder functions available in the package
+
+        :return:
+        """
+        my_item = new_item(name='cheese', price=1.00)
+
+        self.assertIsInstance(my_item, Item)
+        self.assertIsInstance(new_inventory_item(item=my_item, quantity=10), InventoryItem)
+        self.assertIsInstance(build_inventory_item(name='cheese', price=1.00, quanity=40), InventoryItem)
 
 if __name__ == '__main__':
     unittest.main()
