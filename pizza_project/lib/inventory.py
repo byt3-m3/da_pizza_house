@@ -33,6 +33,30 @@ class InventoryItem:
         if isinstance(self._item, Item):
             self._item = item
 
+    def add(self, count: int = 1) -> int:
+        """
+        Increments the self.quantity property by the given amount, default=1
+
+        :param count:
+        :return: Returns the total number incremented
+        """
+        self.quantity = self.quantity + count
+        return count
+
+    def subtract(self, count: int = 1):
+        """
+        Decrements the self.quantity property by the given amount, default=1
+
+        :param count:
+        :return: Returns the total number decremented
+        """
+        temp = self.quantity - count
+        if temp < 0:
+            raise ValueError(f"Quantity requested not available, Current Stock: {self.quantity}")
+        else:
+            self.quantity = temp
+            return count
+
     def __repr__(self):
         return f'<InventoryItem(quantity={self.quantity}, item={self.item})>'
 

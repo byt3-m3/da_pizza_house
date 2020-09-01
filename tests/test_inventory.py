@@ -78,6 +78,30 @@ class InventoryTestCase(unittest.TestCase):
         self.assertIsInstance(new_inventory_item(item=my_item, quantity=10), InventoryItem)
         self.assertIsInstance(build_inventory_item(name='cheese', price=1.00, quantity=40), InventoryItem)
 
+    def test_invetoryitem_add_substract(self):
+        """
+        Tests the InventoryItem.add() and InventoryItem.substract() functions
+
+        :return:
+        """
+        inventory_item = build_inventory_item(name='cheese', price=1.00, quantity=40)
+        self.assertEqual(inventory_item.quantity, 40)
+
+        self.assertEqual(inventory_item.subtract(), 1)
+        self.assertEqual(inventory_item.quantity, 39)
+
+        self.assertEqual(inventory_item.add(), 1)
+        self.assertEqual(inventory_item.quantity, 40)
+
+        self.assertEqual(inventory_item.subtract(5), 5)
+        self.assertEqual(inventory_item.quantity, 35)
+
+        self.assertEqual(inventory_item.add(5), 5)
+        self.assertEqual(inventory_item.quantity, 40)
+
+        with self.assertRaises(ValueError):
+            inventory_item.subtract(50)
+
 
 if __name__ == '__main__':
     unittest.main()
