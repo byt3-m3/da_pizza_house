@@ -12,7 +12,5 @@ system that will provide the ability to simulate the basic functions of a pizza 
 
 
 ## Changelog 
-### Version 1.0.0
-- Implemented 'inventory' module
-    - added Inventory, InventoryItem, Item classes
-    - Created tests for the inventory module
+#### Version 1.0.0
+- Implemented 'inventory' module'
