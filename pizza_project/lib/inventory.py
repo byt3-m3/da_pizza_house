@@ -93,8 +93,8 @@ class Inventory:
         :return:
         """
         if isinstance(item, Item):
-            if self.query_item_by_name(item.name):
-                inventory_item = self.query_item_by_name(item.name)
+            if self._query_item_by_name(item.name):
+                inventory_item = self._query_item_by_name(item.name)
                 inventory_item.quantity += quantity
                 return True
             else:
@@ -132,13 +132,20 @@ class Inventory:
         :param quantity:
         :return:
         """
-        inventory_item = self.query_item_by_name(name)
+        inventory_item = self._query_item_by_name(name)
         if inventory_item:
             inventory_item.quantity = inventory_item.quantity - quantity
             self._add_to_account(quantity + inventory_item.item.price)
             return InventoryItem(item=inventory_item.item, quantity=quantity)
 
-    def query_item_by_name(self, name) -> InventoryItem:
+    def _query_item_by_name(self, name) -> InventoryItem:
+        """
+        Iterates the self.items list and searches for a specific item enclosed in the InventoryItem object.
+
+
+        :param name:
+        :return: InventoryItem object is match else None
+        """
         for item in self.items:
             if item.item.name == name:
                 return item
